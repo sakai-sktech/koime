@@ -170,7 +170,8 @@
 
 ## DD-013: Google Play 非登録でも SDK 追随は続ける（期限付き義務ではなく保守衛生として） — 2026-07-22
 
-- **決定**: Google Play には登録しない（配布は GitHub Releases の APK のみ）が、
+- **決定**: Google Play には登録しない（ストア配布もバイナリ配布もしない。
+  導入は各自ビルドのみ — GETTING-STARTED / SIGNING.md と同一方針）が、
   compileSdk / targetSdk とツールチェーン（Gradle / AGP / Kotlin）の追随は
   継続する。次にビルド構成へ手を入れるタイミングで compileSdk/targetSdk 36 +
   AGP + Gradle + Kotlin を一括更新し（DD-006 の「全部同時に」原則）、API 36
