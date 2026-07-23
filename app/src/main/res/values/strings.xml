@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">koetype</string>
-    <string name="settings_title">koetype 設定</string>
+    <string name="settings_title">koetype Settings</string>
 
     <!-- キーボード -->
-    <string name="status_idle">🎤 をタップして話す</string>
-    <string name="status_recording">録音中… タップで停止</string>
-    <string name="status_transcribing">変換中…</string>
-    <string name="status_no_api_key">APIキー未設定 — ⚙ から設定してください</string>
-    <string name="status_no_permission">マイク権限が必要です — タップして許可</string>
-    <string name="status_error_network">通信エラー: %1$s</string>
-    <string name="status_no_target">挿入先を見失いました — 入力欄をタップし直してください</string>
-    <string name="error_api_key_chars">APIキーに使えない文字が残っています（全角文字など）。貼り付けし直してください</string>
-    <string name="status_empty_result">（無音または認識できませんでした）</string>
-    <string name="status_undone">直前の音声入力を取り消しました</string>
-    <string name="status_undo_unavailable">取り消せる音声入力がありません</string>
+    <string name="status_idle">TAP 🎤 &amp; SPEAK</string>
+    <string name="status_recording">RECORDING… TAP ⏹ TO STOP</string>
+    <string name="status_transcribing">TRANSCRIBING…</string>
+    <string name="status_no_api_key">NO API KEY — SET IT IN ⚙</string>
+    <string name="status_no_permission">MIC PERMISSION NEEDED — TAP TO ALLOW</string>
+    <string name="status_error_network">NETWORK ERROR: %1$s</string>
+    <string name="status_no_target">LOST THE TEXT FIELD — TAP IT AGAIN</string>
+    <string name="error_api_key_chars">Invalid characters remain in the API key (full-width, etc.). Paste it again</string>
+    <string name="status_empty_result">(SILENCE OR NOT RECOGNIZED)</string>
+    <string name="status_undone">UNDONE ✓</string>
+    <string name="status_undo_unavailable">NOTHING TO UNDO</string>
     <string name="key_mic">🎤</string>
     <string name="key_mic_stop">⏹</string>
     <string name="key_backspace">⌫</string>
     <string name="key_enter">⏎</string>
-    <string name="key_space">空白</string>
+    <string name="key_space">SPACE</string>
     <string name="key_globe">🌐</string>
     <string name="key_settings">⚙</string>
     <string name="key_arrow_left">◀</string>
     <string name="key_arrow_right">▶</string>
-    <string name="key_undo">↶ Undo</string>
+    <string name="key_undo">UNDO</string>
 
     <!-- 設定画面 -->
-    <string name="pref_api_key_label">OpenAI API キー</string>
+    <string name="pref_api_key_label">OpenAI API Key</string>
     <string name="pref_api_key_hint">sk-…</string>
-    <string name="pref_model_label">転写モデル</string>
-    <string name="pref_language_label">言語ヒント（空欄=自動判定）</string>
-    <string name="pref_language_hint">例: ja, en（ISO-639-1）</string>
-    <string name="btn_save">保存</string>
-    <string name="btn_enable_ime">1. キーボードを有効化（システム設定）</string>
-    <string name="btn_pick_ime">2. キーボードを切り替える</string>
-    <string name="btn_grant_mic">マイク権限を許可</string>
-    <string name="mic_granted">マイク権限: 許可済み ✓</string>
-    <string name="saved_toast">保存しました</string>
+    <string name="pref_model_label">Transcription model</string>
+    <string name="pref_language_label">Language hint (blank = auto-detect)</string>
+    <string name="pref_language_hint">e.g. ja, en (ISO-639-1)</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_enable_ime">1. Enable the keyboard (system settings)</string>
+    <string name="btn_pick_ime">2. Switch keyboard</string>
+    <string name="btn_grant_mic">Grant microphone permission</string>
+    <string name="mic_granted">Microphone permission: granted ✓</string>
+    <string name="saved_toast">Saved</string>
 </resources>

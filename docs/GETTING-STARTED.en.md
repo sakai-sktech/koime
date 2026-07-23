@@ -67,8 +67,10 @@ Model availability and API behavior can change. The current OpenAI transcription
 2. **Tap the microphone → speak → tap it again.** After the buffered audio is transcribed, the text is inserted at the current cursor position. The current recording limit is five minutes.
 3. Supporting keys:
    - **◀ ▶** — move the cursor; hold to repeat
-   - **↶ Undo — Undo Last Dictation** — removes only the most recent voice-input result as one unit. It works only while the text immediately before the cursor still matches exactly what koetype committed. If you move the cursor or edit the text, the operation is disabled rather than risking deletion of unrelated content.
-   - Space, Backspace, Enter, and ⚙ Settings
+   - **UNDO** — removes only the most recent transcription as one unit. It works only while the text immediately before the cursor still matches exactly what koetype committed. If you move the cursor or edit the text, the operation is disabled rather than risking deletion of unrelated content.
+   - SPACE, ⌫ Backspace, ⏎ Enter, and ⚙ Settings
+
+   The UI is intentionally English-only, written at a basic-English level. The reasoning and the full string catalog are in [LOCALIZATION.md](LOCALIZATION.md).
 
 ## 6. Sign a release build with your own key — Recommended for regular use
 

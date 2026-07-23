@@ -11,11 +11,12 @@ It is a small, from-scratch implementation of a Typeless-style buffered voice ke
       → send the m4a buffer to the STT API → commit the transcription into the active field
 ```
 
-<img src="docs/assets/koetype-UI.jpg" alt="koetype keyboard UI — microphone in the center, cursor keys on both sides, and Undo at the upper right" width="480">
+<img src="docs/assets/koetype-UI.jpg" alt="koetype keyboard UI — microphone in the center, cursor keys on both sides, and UNDO at the upper right" width="480">
 
 - Works in any app because it runs as a system keyboard
 - Supports multiple languages through an optional language hint for Whisper-family models
-- Lets you correct the insertion point and safely undo the latest transcription with ◀▶ cursor keys (hold to repeat) and the **↶ Undo** key
+- Lets you correct the insertion point and safely undo the latest transcription with ◀▶ cursor keys (hold to repeat) and the **UNDO** key
+- Uses an intentionally **English-only UI written at a basic-English level** (TAP 🎤 & SPEAK / UNDO / SPACE …), so every user sees the same labels regardless of device language. See [docs/LOCALIZATION.md](docs/LOCALIZATION.md) and DD-014
 - Keeps the STT provider behind a small abstraction boundary, `SttEngine`; the current implementation uses the OpenAI transcription API
 
 ## Philosophy — Your key, your device, your voice
@@ -89,6 +90,7 @@ app/src/main/java/dev/sakai/koetype/
 - **Add an AI refinement layer.** Put an LLM after transcription for filler removal, cleanup, or domain-specific transformation into more precise text.
 - **Move toward streaming.** Replace the buffered workflow with near-real-time transcription.
 - **Add local STT.** A phone will eventually be able to perform this level of transcription entirely on-device. When that time comes, a local engine such as whisper.cpp can be placed behind `SttEngine`.
+- **Localize the UI.** The UI is basic English only for now (DD-014). If you want your own language, add a `values-<lang>/strings.xml`; the full string catalog is maintained in [docs/LOCALIZATION.md](docs/LOCALIZATION.md).
 - Most importantly, **the person using the tool should be able to turn it into their own tool**. `SttEngine` exists as the replacement boundary that makes that possible.
 
 ## License
