@@ -1,8 +1,8 @@
-# koetype — An Android Keyboard You Type With Your Voice
+# KoIME — An Android Keyboard You Type With Your Voice
 
 [日本語](README.md) | **English**
 
-koetype is a custom Android IME built specifically for voice input. Tap the microphone, speak, tap again, and the buffered recording is sent to a speech-to-text API. The resulting text is committed directly into the field you were typing in.
+KoIME is a custom Android IME built specifically for voice input. Tap the microphone, speak, tap again, and the buffered recording is sent to a speech-to-text API. The resulting text is committed directly into the field you were typing in.
 
 It is a small, from-scratch implementation of a Typeless-style buffered voice keyboard.
 
@@ -11,7 +11,7 @@ It is a small, from-scratch implementation of a Typeless-style buffered voice ke
       → send the m4a buffer to the STT API → commit the transcription into the active field
 ```
 
-<img src="docs/assets/koetype-UI.jpg" alt="koetype keyboard UI — microphone in the center, cursor keys on both sides, and UNDO at the upper right" width="480">
+<img src="docs/assets/koime-UI.jpg" alt="KoIME keyboard UI — microphone in the center, cursor keys on both sides, and UNDO at the upper right" width="480">
 
 - Works in any app because it runs as a system keyboard
 - Supports multiple languages through an optional language hint for Whisper-family models
@@ -23,11 +23,11 @@ It is a small, from-scratch implementation of a Typeless-style buffered voice ke
 
 - **BYOK — Bring Your Own Key.** You obtain your own API key and enter it on your own device. No key is bundled with the app, and there is no server operated by the author. OpenAI bills you directly. You can see the cost, set limits, and revoke the key yourself. There is no invisible intermediary adding a margin or imposing an unexplained quota.
 
-- **The path your voice takes is explicit.** koetype records only while you have deliberately activated the microphone. The audio is sent **directly** to OpenAI using your own key, then removed from the device after transcription. No third party—including the author—sits in the middle. Where your voice goes is determined by the provider you choose.
+- **The path your voice takes is explicit.** KoIME records only while you have deliberately activated the microphone. The audio is sent **directly** to OpenAI using your own key, then removed from the device after transcription. No third party—including the author—sits in the middle. Where your voice goes is determined by the provider you choose.
 
-- **The friction of obtaining an API key is intentional.** koetype is for people who understand what an API key is and can obtain, fund, limit, and revoke one themselves. That is not an unfinished onboarding flow; it is part of the product boundary. See [DD-010](docs/DESIGN-DECISIONS.en.md).
+- **The friction of obtaining an API key is intentional.** KoIME is for people who understand what an API key is and can obtain, fund, limit, and revoke one themselves. That is not an unfinished onboarding flow; it is part of the product boundary. See [DD-010](docs/DESIGN-DECISIONS.en.md).
 
-- **There is little reason to surrender control when a personal application can now be assembled and rewritten in minutes.** With modern AI assistance, you can fork this codebase and turn it into your own voice-input tool without beginning from a blank screen. Convenience no longer requires handing somebody else your data and your key. Keep the data. Keep the key. Keep the steering wheel. koetype is a working base for doing exactly that.
+- **There is little reason to surrender control when a personal application can now be assembled and rewritten in minutes.** With modern AI assistance, you can fork this codebase and turn it into your own voice-input tool without beginning from a blank screen. Convenience no longer requires handing somebody else your data and your key. Keep the data. Keep the key. Keep the steering wheel. KoIME is a working base for doing exactly that.
 
 - **An IME sits in a position where it could read everything you type.** This is not an ordinary Android app. A malicious keyboard could steal every keystroke you make. That is why I do not consider “trust the developer” to be an adequate security model for a keyboard. The only serious basis for trust is code you can inspect and a build you can produce and sign yourself. **Do not trust it blindly. Read it. Then rewrite it if you need to.** AI will help you do that. See [THREAT-MODEL.en.md](THREAT-MODEL.en.md), which also identifies the boundaries designed to be replaced.
 
@@ -39,9 +39,13 @@ That also means my response to issues and pull requests may be limited. I would 
 
 What I do want is for this repository to become a base from which people can extend voice input within a scope they themselves control. That is why it is public.
 
+## About the name
+
+KoIME was renamed from **koetype** in July 2026 to avoid confusion with the pre-existing, unrelated project [yasu-888/koetype](https://github.com/yasu-888/koetype) (KoeType). See DD-016 for the decision record. The name is koe (Japanese for “voice”) + IME — and read as a Japanese word, it happens to sound like *koime* (“extra strong”).
+
 ## Privacy
 
-- koetype does not collect or transmit ordinary keyboard input.
+- KoIME does not collect or transmit ordinary keyboard input.
 - The only content sent is audio that you explicitly record by tapping the microphone. It is sent directly to OpenAI using the API key you configured.
 - There are no ads, analytics SDKs, or telemetry.
 
@@ -52,22 +56,22 @@ Read **[docs/GETTING-STARTED.en.md](docs/GETTING-STARTED.en.md)**. It covers the
 **You do not need prior Android development experience.** When something is unfamiliar, give the guide itself to an AI assistant and use it as an executable set of instructions. It was written to support exactly that workflow. There is no good reason you should be unable to build your own copy. If my explanation leaves a gap, open an issue and point to the gap.
 
 ```bash
-git clone https://github.com/sakai-sktech/koetype.git
-cd koetype && ./gradlew assembleDebug
+git clone https://github.com/sakai-sktech/koime.git
+cd koime && ./gradlew assembleDebug
 adb install app/build/outputs/apk/debug/app-debug.apk
 ```
 
 The API-key field supports Android's standard Autofill Framework. A key stored in Bitwarden, 1Password, Google Password Manager, KeePassDX, or another compatible manager can be filled without sending it to yourself by email or chat and without routing it through the clipboard.
 
-This does not transfer responsibility for key management to koetype. It simply avoids obstructing the secure key-management system you already chose for yourself. See [DD-012](docs/DESIGN-DECISIONS.en.md).
+This does not transfer responsibility for key management to KoIME. It simply avoids obstructing the secure key-management system you already chose for yourself. See [DD-012](docs/DESIGN-DECISIONS.en.md).
 
 ## Documentation
 
 | Document | What it covers |
 |---|---|
-| [THREAT-MODEL.en.md](THREAT-MODEL.en.md) | What koetype protects against, and what it explicitly does not |
+| [THREAT-MODEL.en.md](THREAT-MODEL.en.md) | What KoIME protects against, and what it explicitly does not |
 | [docs/GETTING-STARTED.en.md](docs/GETTING-STARTED.en.md) | Complete setup procedure |
-| [docs/DESIGN-DECISIONS.en.md](docs/DESIGN-DECISIONS.en.md) | Decision log DD-001 through DD-013—the reasons behind the current shape of the software |
+| [docs/DESIGN-DECISIONS.en.md](docs/DESIGN-DECISIONS.en.md) | Decision log DD-001 through DD-016—the reasons behind the current shape of the software |
 | [docs/KEY-STORAGE-SECURITY.md](docs/KEY-STORAGE-SECURITY.md) | Where the API key is stored, what protects it, and how to frame the same questions for an iOS port *(Japanese)* |
 | [docs/SIGNING.md](docs/SIGNING.md) | What Android signing proves and why a user-owned self-signed build is the intended design *(Japanese)* |
 | [docs/PRODUCTIZATION.md](docs/PRODUCTIZATION.md) | The operational barriers a fork would need to cross before becoming a managed service *(Japanese)* |
@@ -78,7 +82,7 @@ The Japanese documents remain the source of truth where an English translation h
 ## Project structure
 
 ```text
-app/src/main/java/dev/sakai/koetype/
+app/src/main/java/dev/sakai/koime/
   ime/        InputMethodService and keyboard UI
   audio/      Recording: MediaRecorder → m4a buffer
   stt/        SttEngine abstraction + OpenAI implementation

@@ -1,8 +1,8 @@
-# koetype Threat Model — What It Protects, and What It Does Not
+# KoIME Threat Model — What It Protects, and What It Does Not
 
 [日本語](THREAT-MODEL.md) | **English**
 
-koetype stores its API key in **plaintext inside the app's private storage**. See [KEY-STORAGE-SECURITY.md](docs/KEY-STORAGE-SECURITY.md) for the detailed Japanese explanation.
+KoIME stores its API key in **plaintext inside the app's private storage**. See [KEY-STORAGE-SECURITY.md](docs/KEY-STORAGE-SECURITY.md) for the detailed Japanese explanation.
 
 That is not an omission that has been quietly ignored. It is an explicit design decision, DD-005. But a decision like that is defensible only when its assumptions and protection boundary are stated plainly. This document does that.
 
@@ -10,9 +10,9 @@ That is not an omission that has been quietly ignored. It is an explicit design 
 
 **The API key and the device have the same owner: you.**
 
-koetype has no operator and no agent acting on the user's behalf. The party the design is intended to defend against is a third party trying to gain access to your device—not you, and not an application operator holding a key for you.
+KoIME has no operator and no agent acting on the user's behalf. The party the design is intended to defend against is a third party trying to gain access to your device—not you, and not an application operator holding a key for you.
 
-Any deployment that breaks this assumption is outside this threat model: distributing one key to other people, installing it on a shared device, or operating koetype as a managed service. For those cases, read [PRODUCTIZATION.md](docs/PRODUCTIZATION.md).
+Any deployment that breaks this assumption is outside this threat model: distributing one key to other people, installing it on a shared device, or operating KoIME as a managed service. For those cases, read [PRODUCTIZATION.md](docs/PRODUCTIZATION.md).
 
 ## Assets being protected
 
@@ -31,7 +31,7 @@ Any deployment that breaks this assumption is outside this threat model: distrib
 | Network interception | TLS communication to OpenAI only. The app has no other network destination. |
 | Recorded audio remaining on the device | Recording is written only to `cacheDir` and deleted immediately after transcription. It is not persisted as user data. |
 | API key appearing in logs or crash reports | Project rule: never include the key in logs or exception messages. Full-width characters, whitespace, and other malformed input are normalized or rejected at the entry boundary; see DD-009. |
-| Suspicion that the IME itself is collecting typed content | You can **verify the absence of collection code in the source**. The two files to inspect first are `KoetypeImeService.kt`, which contains the `commitText` path, and `OpenAiSttEngine.kt`, which contains the only network destination. |
+| Suspicion that the IME itself is collecting typed content | You can **verify the absence of collection code in the source**. The two files to inspect first are `KoimeImeService.kt`, which contains the `commitText` path, and `OpenAiSttEngine.kt`, which contains the only network destination. |
 
 ## Out of scope — Threats the design explicitly does not claim to solve
 

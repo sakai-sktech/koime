@@ -1,4 +1,4 @@
-package dev.sakai.koetype.settings
+package dev.sakai.koime.settings
 
 import android.Manifest
 import android.app.Activity

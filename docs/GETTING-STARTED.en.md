@@ -2,19 +2,19 @@
 
 [日本語](GETTING-STARTED.md) | **English**
 
-koetype is not distributed through an app store or as a prebuilt binary, and this guide assumes that you will **build and install your own copy**. That is the intended installation path, not a temporary inconvenience. The reasons are explained in the philosophy section of the README and in the threat model.
+KoIME is not distributed through an app store or as a prebuilt binary, and this guide assumes that you will **build and install your own copy**. That is the intended installation path, not a temporary inconvenience. The reasons are explained in the philosophy section of the README and in the threat model.
 
 ## 0. Prerequisites
 
 - **Device:** Android 8.0 / API 26 or later
-- **Your own OpenAI API key:** obtain one through <https://platform.openai.com>. OpenAI bills API usage directly to you; the author of koetype is not involved in billing, limits, or account operation. Follow OpenAI's current first-party documentation to create the key and configure spending controls. A password manager is strongly recommended; it becomes useful in section 4.
+- **Your own OpenAI API key:** obtain one through <https://platform.openai.com>. OpenAI bills API usage directly to you; the author of KoIME is not involved in billing, limits, or account operation. Follow OpenAI's current first-party documentation to create the key and configure spending controls. A password manager is strongly recommended; it becomes useful in section 4.
 - **Build environment:** JDK 17, Android SDK with `platforms;android-34`, and adb. Installing Android Studio is the easiest route, but the command-line SDK tools are sufficient.
 
 ## 1. Build
 
 ```bash
-git clone https://github.com/sakai-sktech/koetype.git
-cd koetype
+git clone https://github.com/sakai-sktech/koime.git
+cd koime
 
 # Point Gradle to your Android SDK.
 # Android Studio usually creates this file automatically.
@@ -30,12 +30,12 @@ adb install app/build/outputs/apk/debug/app-debug.apk
 ```
 
 1. On the device, open **Settings → System → Languages & input → On-screen keyboard**. The exact labels vary by Android vendor.
-2. Enable **koetype**.
-3. Android will display a warning explaining that a keyboard may be able to collect everything you type. This is the standard operating-system warning for the entire IME category. It should not be dismissed as meaningless: a keyboard really does occupy that trust position. What koetype sends—and what it does not send—can be verified in the source and is summarized in [THREAT-MODEL.en.md](../THREAT-MODEL.en.md).
+2. Enable **KoIME**.
+3. Android will display a warning explaining that a keyboard may be able to collect everything you type. This is the standard operating-system warning for the entire IME category. It should not be dismissed as meaningless: a keyboard really does occupy that trust position. What KoIME sends—and what it does not send—can be verified in the source and is summarized in [THREAT-MODEL.en.md](../THREAT-MODEL.en.md).
 
 ## 3. Grant microphone permission
 
-Open the **koetype** settings screen from the launcher and select the microphone-permission action to grant `RECORD_AUDIO`.
+Open the **KoIME** settings screen from the launcher and select the microphone-permission action to grant `RECORD_AUDIO`.
 
 Android will also request the permission the first time you tap the microphone on the keyboard if it has not already been granted.
 
@@ -51,7 +51,7 @@ There is no need to email the key to yourself, send it through a chat applicatio
 
 ### Manual entry or paste
 
-When the value is saved, koetype normalizes full-width Latin characters to ASCII and removes whitespace. This exists because a real-device test exposed a failure caused by full-width characters introduced through smartphone text input; see DD-009.
+When the value is saved, KoIME normalizes full-width Latin characters to ASCII and removes whitespace. This exists because a real-device test exposed a failure caused by full-width characters introduced through smartphone text input; see DD-009.
 
 If the settings screen still warns about invalid characters, inspect the key rather than repeatedly retrying the API call.
 
@@ -61,13 +61,13 @@ Model availability and API behavior can change. The current OpenAI transcription
 
 <https://platform.openai.com/docs/api-reference/audio/createTranscription>
 
-## 5. Use koetype
+## 5. Use KoIME
 
-1. Focus a text field in any app and switch the active keyboard to **koetype** using the globe key or Android's keyboard switcher.
+1. Focus a text field in any app and switch the active keyboard to **KoIME** using the globe key or Android's keyboard switcher.
 2. **Tap the microphone → speak → tap it again.** After the buffered audio is transcribed, the text is inserted at the current cursor position. The current recording limit is five minutes.
 3. Supporting keys:
    - **◀ ▶** — move the cursor; hold to repeat
-   - **UNDO** — removes only the most recent transcription as one unit. It works only while the text immediately before the cursor still matches exactly what koetype committed. If you move the cursor or edit the text, the operation is disabled rather than risking deletion of unrelated content.
+   - **UNDO** — removes only the most recent transcription as one unit. It works only while the text immediately before the cursor still matches exactly what KoIME committed. If you move the cursor or edit the text, the operation is disabled rather than risking deletion of unrelated content.
    - SPACE, ⌫ Backspace, ⏎ Enter, and ⚙ Settings
 
    The UI is intentionally English-only, written at a basic-English level. The reasoning and the full string catalog are in [LOCALIZATION.md](LOCALIZATION.md).
@@ -82,7 +82,7 @@ Create your own signing key. This is not a workaround for the lack of a store ce
 mkdir -p signing
 keytool -genkeypair -v \
   -keystore signing/my-release.jks \
-  -alias koetype -keyalg RSA -keysize 2048 -validity 10000
+  -alias koime -keyalg RSA -keysize 2048 -validity 10000
 ```
 
 Create `keystore.properties` in the repository root:
@@ -90,7 +90,7 @@ Create `keystore.properties` in the repository root:
 ```properties
 storeFile=signing/my-release.jks
 storePassword=YOUR_STORE_PASSWORD
-keyAlias=koetype
+keyAlias=koime
 keyPassword=YOUR_KEY_PASSWORD
 ```
 
@@ -109,10 +109,10 @@ If you lose your signing key, you cannot issue an update under the same applicat
 
 ## 7. Troubleshooting
 
-- koetype is designed to show a reason in the keyboard status area whenever transcription fails; it should not silently return to the idle state. To investigate further:
+- KoIME is designed to show a reason in the keyboard status area whenever transcription fails; it should not silently return to the idle state. To investigate further:
 
   ```bash
-  adb logcat -s koetype AndroidRuntime
+  adb logcat -s koime AndroidRuntime
   ```
 
 - Emulator-specific traps—including a missing software keyboard and an IME that appears to freeze after reinstall—are documented with reproduction steps in [2026-07-08_emulator-smoke-test.md](2026-07-08_emulator-smoke-test.md) *(Japanese)*.

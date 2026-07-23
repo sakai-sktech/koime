@@ -1,4 +1,6 @@
-# koetype Design Decision Log
+# KoIME Design Decision Log
+
+> Note: the project was renamed from koetype to KoIME in July 2026 (DD-016). Entries up to DD-015 keep the former name as part of the historical record.
 
 [日本語](DESIGN-DECISIONS.md) | **English**
 
@@ -125,3 +127,10 @@
 - **Why:** The trigger was a real near-miss: the English-translation PR #1 and the backup-boundary PR #2 were merged here directly, and the private source of truth briefly fell behind with nothing in place to detect it. Rolling back merged PRs would erase the record of a contribution, which is dishonest. Forbidding *unreconciled* divergence — rather than divergence itself — lets external contributions and one-way snapshot development coexist.
 - **Alternatives considered:** Closing PRs and re-implementing them in the source of truth (erases the contributor's record); making the public repository the source of truth (incompatible with keeping some private implementations out of the snapshot). Both rejected.
 - **Trade-off accepted:** A response to a PR may arrive as a later sync commit rather than an immediate follow-up commit, and there can be a lag before a merged change is reconciled. This is the same constraint already stated honestly in the README: responsiveness here is limited by design.
+
+## DD-016: Rename koetype → KoIME — avoiding confusion with a pre-existing project of the same name — 2026-07-24
+
+- **Decision:** Rename the project from koetype to **KoIME** (lowercase identifier: `koime`). The change is applied consistently: applicationId / namespace `dev.sakai.koime`, package and class names (`KoimeImeService`), the mandatory log tag from DD-009, and the repository name (sakai-sktech/koime). The display name is `KoIME`. The name is koe (voice) + IME — read as a Japanese word it sounds like *koime* (“extra strong”). versionCode 6 / versionName 0.2.0.
+- **Why:** After publication, a pre-existing project with the same name was discovered: [yasu-888/koetype](https://github.com/yasu-888/koetype) (KoeType), a released voice-input app for macOS/Windows with binary distribution and release articles. There is no legal obligation to rename — GitHub namespaces coexist per owner, and no trademark registration was found — but two MIT-licensed voice-input tools by individual Japanese developers is the closest possible field for a name collision, and confusion was judged inevitable. This project had been public for two weeks with no releases and no store listing, so the cost of renaming will never be lower than now (issue #3 served as the execution handoff).
+- **Alternatives considered:** koeuchi, koegaki, and VoIME, each checked for collisions on GitHub and the web. VoIME has no product collision but was rejected: the pronunciation is unstable, the spelling reads like VoIP, and github.com/voime already exists as a personal account. Keeping the current name was rejected because the cost of confusion compounds as either project grows.
+- **Trade-off accepted:** Because the applicationId changes, an existing installation becomes a **different app**: the old app must be uninstalled manually, the new one installed, and the API key configured again (a password manager's item URI also needs updating to `androidapp://dev.sakai.koime`). Historical documents — dated records and DD-001 through DD-015 — keep the former name as frozen records, with a leading note pointing to the current name.

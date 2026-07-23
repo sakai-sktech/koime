@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "koetype"
+rootProject.name = "koime"
 include(":app")

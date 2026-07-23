@@ -12,15 +12,15 @@ val keystoreProps = Properties().apply {
 }
 
 android {
-    namespace = "dev.sakai.koetype"
+    namespace = "dev.sakai.koime"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "dev.sakai.koetype"
+        applicationId = "dev.sakai.koime"
         minSdk = 26
         targetSdk = 34
-        versionCode = 5
-        versionName = "0.1.4"
+        versionCode = 6
+        versionName = "0.2.0"
     }
 
     signingConfigs {

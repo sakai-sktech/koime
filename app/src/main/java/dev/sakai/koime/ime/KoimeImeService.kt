@@ -1,4 +1,4 @@
-package dev.sakai.koetype.ime
+package dev.sakai.koime.ime
 
 import android.Manifest
 import android.content.Intent
@@ -15,14 +15,14 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.TextView
-import dev.sakai.koetype.R
-import dev.sakai.koetype.audio.VoiceRecorder
-import dev.sakai.koetype.settings.PermissionActivity
-import dev.sakai.koetype.settings.Prefs
-import dev.sakai.koetype.settings.SettingsActivity
-import dev.sakai.koetype.stt.OpenAiSttEngine
-import dev.sakai.koetype.stt.SttEngine
-import dev.sakai.koetype.stt.SttRequest
+import dev.sakai.koime.R
+import dev.sakai.koime.audio.VoiceRecorder
+import dev.sakai.koime.settings.PermissionActivity
+import dev.sakai.koime.settings.Prefs
+import dev.sakai.koime.settings.SettingsActivity
+import dev.sakai.koime.stt.OpenAiSttEngine
+import dev.sakai.koime.stt.SttEngine
+import dev.sakai.koime.stt.SttRequest
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -38,11 +38,11 @@ private const val REPEAT_INTERVAL_MS = 50L
  * バッファ方式の音声入力 IME（DD-002）。
  * マイクタップで録音開始 → 再タップで停止 → 転写 → commitText で挿入。
  */
-class KoetypeImeService : InputMethodService() {
+class KoimeImeService : InputMethodService() {
 
     // 最後の砦: 転写コルーチンから何が漏れても IME プロセスは殺さない（DD-009）
     private val crashGuard = CoroutineExceptionHandler { _, e ->
-        Log.e("koetype", "unhandled exception in serviceScope", e)
+        Log.e("koime", "unhandled exception in serviceScope", e)
         mainHandler.post {
             transcribing = false
             setRecordingUi(false)

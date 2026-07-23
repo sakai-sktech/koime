@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">koetype</string>
-    <string name="settings_title">koetype Settings</string>
+    <string name="app_name">KoIME</string>
+    <string name="settings_title">KoIME Settings</string>
 
     <!-- キーボード -->
     <string name="status_idle">TAP 🎤 &amp; SPEAK</string>

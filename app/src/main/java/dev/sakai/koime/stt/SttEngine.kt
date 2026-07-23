@@ -1,4 +1,4 @@
-package dev.sakai.koetype.stt
+package dev.sakai.koime.stt
 
 import java.io.File
 

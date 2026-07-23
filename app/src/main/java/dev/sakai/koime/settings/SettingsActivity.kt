@@ -1,4 +1,4 @@
-package dev.sakai.koetype.settings
+package dev.sakai.koime.settings
 
 import android.Manifest
 import android.app.Activity
@@ -12,7 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.Toast
-import dev.sakai.koetype.R
+import dev.sakai.koime.R
 
 /** API キー・モデル・言語ヒントの設定と、IME 有効化/権限許可への導線。 */
 class SettingsActivity : Activity() {

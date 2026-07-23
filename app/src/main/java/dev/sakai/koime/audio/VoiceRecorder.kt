@@ -1,4 +1,4 @@
-package dev.sakai.koetype.audio
+package dev.sakai.koime.audio
 
 import android.content.Context
 import android.media.MediaRecorder
@@ -27,7 +27,7 @@ class VoiceRecorder(
     /** 録音開始。RECORD_AUDIO 権限は呼び出し側で確認済みであること。 */
     fun start() {
         check(recorder == null) { "already recording" }
-        val file = File.createTempFile("koetype_", ".m4a", context.cacheDir)
+        val file = File.createTempFile("koime_", ".m4a", context.cacheDir)
         val r = if (Build.VERSION.SDK_INT >= 31) {
             MediaRecorder(context)
         } else {

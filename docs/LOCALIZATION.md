@@ -1,13 +1,13 @@
 # LOCALIZATION — UI String Catalog / UI 文字列台帳
 
-The koetype UI is intentionally **English-only, written at a basic-English level**
+The KoIME UI is intentionally **English-only, written at a basic-English level**
 (roughly junior-high-school vocabulary). The reasoning is recorded in DD-014:
 the keyboard surface is mostly symbols (🎤 ⌫ ⏎ ⚙ ◀ ▶) plus a handful of short
 words, and the BYOK audience — people who can obtain an API key on an
 English-language platform — can read them by definition. One default resource
 file means there is no localization matrix to maintain.
 
-koetype の UI は意図的に**中学英語のみ**。理由は DD-014 に記録してある。
+KoIME の UI は意図的に**中学英語のみ**。理由は DD-014 に記録してある。
 キーボード面はほぼ記号で、残りは短い英単語だけ。BYOK の対象者（英語のプラット
 フォームで API キーを取得できる人）は定義上これを読める。デフォルトリソース
 1 ファイルだけなら、ローカライズのマトリクス保守は発生しない。
@@ -54,7 +54,7 @@ are language-neutral and normally need no translation.
 
 | Resource | English (default) | 日本語（原文） |
 |---|---|---|
-| `settings_title` | koetype Settings | koetype 設定 |
+| `settings_title` | KoIME Settings | KoIME 設定 |
 | `pref_api_key_label` | OpenAI API Key | OpenAI API キー |
 | `pref_api_key_hint` | sk-… | sk-… |
 | `pref_model_label` | Transcription model | 転写モデル |

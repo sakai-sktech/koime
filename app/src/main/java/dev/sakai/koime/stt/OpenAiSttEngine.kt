@@ -1,4 +1,4 @@
-package dev.sakai.koetype.stt
+package dev.sakai.koime.stt
 
 import android.util.Log
 import kotlinx.coroutines.CancellationException
@@ -79,7 +79,7 @@ class OpenAiSttEngine(private val apiKeyProvider: () -> String) : SttEngine {
             } catch (e: IOException) {
                 Result.failure(IOException(e.message ?: "接続失敗"))
             } catch (e: Throwable) {
-                Log.e("koetype", "transcribe failed: ${e.javaClass.simpleName}", e)
+                Log.e("koime", "transcribe failed: ${e.javaClass.simpleName}", e)
                 Result.failure(IOException("${e.javaClass.simpleName}: ${e.message ?: "?"}"))
             }
         }

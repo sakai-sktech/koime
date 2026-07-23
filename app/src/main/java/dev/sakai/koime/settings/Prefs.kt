@@ -1,4 +1,4 @@
-package dev.sakai.koetype.settings
+package dev.sakai.koime.settings
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -10,7 +10,7 @@ import android.content.SharedPreferences
 object Prefs {
     const val DEFAULT_MODEL = "gpt-4o-mini-transcribe"
 
-    private const val FILE = "koetype_prefs"
+    private const val FILE = "koime_prefs"
     private const val KEY_API_KEY = "api_key"
     private const val KEY_MODEL = "model"
     private const val KEY_LANGUAGE = "language"
