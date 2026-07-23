@@ -11,11 +11,11 @@ It is a small, from-scratch implementation of a Typeless-style buffered voice ke
       → send the m4a buffer to the STT API → commit the transcription into the active field
 ```
 
-<img src="docs/assets/koetype-UI.jpg" alt="koetype keyboard UI — microphone in the center, cursor keys on both sides, and undo-last-transcription at the upper right" width="480">
+<img src="docs/assets/koetype-UI.jpg" alt="koetype keyboard UI — microphone in the center, cursor keys on both sides, and Undo at the upper right" width="480">
 
 - Works in any app because it runs as a system keyboard
 - Supports multiple languages through an optional language hint for Whisper-family models
-- Lets you correct the insertion point and safely undo the latest transcription with ◀▶ cursor keys (hold to repeat) and the **全消し** ("clear all") key
+- Lets you correct the insertion point and safely undo the latest transcription with ◀▶ cursor keys (hold to repeat) and the **↶ Undo** key
 - Keeps the STT provider behind a small abstraction boundary, `SttEngine`; the current implementation uses the OpenAI transcription API
 
 ## Philosophy — Your key, your device, your voice
