@@ -6,19 +6,20 @@
     android:orientation="vertical"
     android:padding="8dp">
 
-    <LinearLayout
+    <!-- 状態テキストは全幅センタリング＝マイクの中心軸と一致させる。
+         左右の対称パディング 78dp = UNDO(72dp)+マージン(6dp) ぶんの逃げ -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/statusText"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
             android:gravity="center"
             android:minHeight="40dp"
+            android:paddingHorizontal="78dp"
             android:text="@string/status_idle"
             android:textColor="#EBEBF0"
             android:textSize="14sp" />
@@ -27,12 +28,13 @@
             android:id="@+id/undoButton"
             android:layout_width="72dp"
             android:layout_height="40dp"
+            android:layout_gravity="end|center_vertical"
             android:layout_margin="3dp"
             android:background="@drawable/bg_key"
             android:text="@string/key_undo"
             android:textColor="#EBEBF0"
             android:textSize="14sp" />
-    </LinearLayout>
+    </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -40,7 +42,7 @@
 
         <Button
             android:id="@+id/arrowLeftButton"
-            android:layout_width="56dp"
+            android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_gravity="start|center_vertical"
             android:layout_marginStart="3dp"
@@ -60,7 +62,7 @@
 
         <Button
             android:id="@+id/arrowRightButton"
-            android:layout_width="56dp"
+            android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_gravity="end|center_vertical"
             android:layout_marginEnd="3dp"
