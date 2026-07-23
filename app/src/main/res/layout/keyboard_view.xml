@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#1C1C1E"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:minHeight="40dp"
+            android:text="@string/status_idle"
+            android:textColor="#EBEBF0"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/undoButton"
+            android:layout_width="72dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@drawable/bg_key"
+            android:text="@string/key_undo"
+            android:textColor="#EBEBF0"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <Button
+            android:id="@+id/arrowLeftButton"
+            android:layout_width="56dp"
+            android:layout_height="72dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/bg_key"
+            android:text="@string/key_arrow_left"
+            android:textColor="#EBEBF0"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/micButton"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_mic_idle"
+            android:text="@string/key_mic"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/arrowRightButton"
+            android:layout_width="56dp"
+            android:layout_height="72dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="3dp"
+            android:background="@drawable/bg_key"
+            android:text="@string/key_arrow_right"
+            android:textColor="#EBEBF0"
+            android:textSize="20sp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/globeButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_key"
+            android:text="@string/key_globe"
+            android:textColor="#EBEBF0"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/spaceButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="2"
+            android:background="@drawable/bg_key"
+            android:text="@string/key_space"
+            android:textColor="#EBEBF0"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/backspaceButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_key"
+            android:text="@string/key_backspace"
+            android:textColor="#EBEBF0"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/enterButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_key"
+            android:text="@string/key_enter"
+            android:textColor="#EBEBF0"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/settingsButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_key"
+            android:text="@string/key_settings"
+            android:textColor="#EBEBF0"
+            android:textSize="20sp" />
+    </LinearLayout>
+</LinearLayout>

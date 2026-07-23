@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="880" viewBox="0 0 1240 880" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic UI','Yu Gothic',sans-serif">
+  <!-- 背景 -->
+  <rect width="1240" height="880" fill="#F7F8FA"/>
+
+  <!-- タイトル -->
+  <text x="40" y="58" font-size="26" font-weight="700" fill="#1F242C">電子署名は「何を証明するか」でレイヤーが違う</text>
+  <text x="40" y="86" font-size="13" fill="#6B7280">コード署名の信頼モデル — なぜ Android は“オレオレ署名”が正規設計なのか　（koetype 壁打ち 2026-07-10）</text>
+
+  <!-- 中心の問い -->
+  <rect x="40" y="106" width="1160" height="36" rx="18" fill="#EEF1F5"/>
+  <text x="620" y="129" font-size="14" font-weight="700" fill="#3A4048" text-anchor="middle">その署名は、何を証明するためのものか？　── 目的が違えば、鍵の正しさの基準も違う</text>
+
+  <!-- ============ LAYER 1: 連続性 (Android) ============ -->
+  <g transform="translate(40,170)">
+    <rect x="0" y="0" width="280" height="64" rx="10" fill="#1E8E5A"/>
+    <text x="16" y="24" font-size="11" font-weight="700" fill="#FFFFFF" opacity="0.8">LAYER 1 ── Android APK 署名</text>
+    <text x="16" y="47" font-size="19" font-weight="700" fill="#FFFFFF">連続性の証明</text>
+    <rect x="0" y="72" width="280" height="328" rx="10" fill="#FFFFFF" stroke="#E3E6EB"/>
+    <rect x="14" y="86" width="252" height="58" rx="8" fill="#E6F6EE"/>
+    <text x="140" y="110" font-size="13" font-weight="700" fill="#14663F" text-anchor="middle">「v2 の配布者は</text>
+    <text x="140" y="130" font-size="13" font-weight="700" fill="#14663F" text-anchor="middle">v1 の配布者と同一である」</text>
+    <text x="16" y="168" font-size="10.5" font-weight="700" fill="#8A9099">しくみ</text>
+    <text x="16" y="188" font-size="12.5" fill="#3A4048">自己署名（オレオレ）が正規設計</text>
+    <text x="16" y="207" font-size="12.5" fill="#3A4048">CA チェーンは検証しない</text>
+    <text x="16" y="226" font-size="12.5" fill="#3A4048">初回インストール時の判断が</text>
+    <text x="16" y="245" font-size="12.5" fill="#3A4048">信頼の起点（TOFU）</text>
+    <text x="16" y="276" font-size="10.5" font-weight="700" fill="#8A9099">検証するのは誰か</text>
+    <text x="16" y="296" font-size="12.5" fill="#3A4048">Android OS（更新の上書き時）</text>
+    <text x="16" y="327" font-size="10.5" font-weight="700" fill="#8A9099">防ぐもの / 例</text>
+    <text x="16" y="347" font-size="12.5" fill="#3A4048">第三者による偽アップデート</text>
+    <text x="16" y="366" font-size="12.5" fill="#3A4048">例: すべての Android アプリ</text>
+    <text x="16" y="385" font-size="12.5" fill="#3A4048">（Google 製アプリも同じ）</text>
+  </g>
+
+  <!-- ============ LAYER 2: 身元 (Win/mac) ============ -->
+  <g transform="translate(340,170)">
+    <rect x="0" y="0" width="280" height="64" rx="10" fill="#2563C4"/>
+    <text x="16" y="24" font-size="11" font-weight="700" fill="#FFFFFF" opacity="0.8">LAYER 2 ── Windows / macOS</text>
+    <text x="16" y="47" font-size="19" font-weight="700" fill="#FFFFFF">身元の証明</text>
+    <rect x="0" y="72" width="280" height="328" rx="10" fill="#FFFFFF" stroke="#E3E6EB"/>
+    <rect x="14" y="86" width="252" height="58" rx="8" fill="#E8F0FC"/>
+    <text x="140" y="110" font-size="13" font-weight="700" fill="#1A4A96" text-anchor="middle">「このソフトは</text>
+    <text x="140" y="130" font-size="13" font-weight="700" fill="#1A4A96" text-anchor="middle">◯◯ が作ったものである」</text>
+    <text x="16" y="168" font-size="10.5" font-weight="700" fill="#8A9099">しくみ</text>
+    <text x="16" y="188" font-size="12.5" fill="#3A4048">CA が身元を審査した証明書で</text>
+    <text x="16" y="207" font-size="12.5" fill="#3A4048">コード署名し、OS が証明書</text>
+    <text x="16" y="226" font-size="12.5" fill="#3A4048">チェーンを検証する</text>
+    <text x="16" y="276" font-size="10.5" font-weight="700" fill="#8A9099">検証するのは誰か</text>
+    <text x="16" y="296" font-size="12.5" fill="#3A4048">Windows / macOS（+ 公証）</text>
+    <text x="16" y="327" font-size="10.5" font-weight="700" fill="#8A9099">例 / 備考</text>
+    <text x="16" y="347" font-size="12.5" fill="#3A4048">Authenticode / Developer ID</text>
+    <text x="16" y="366" font-size="12.5" fill="#3A4048">※「公的な鍵で署名」の直感が</text>
+    <text x="16" y="385" font-size="12.5" fill="#3A4048">正解になる世界はこちら側</text>
+  </g>
+
+  <!-- ============ LAYER 3: 流通の担保 (Play) ============ -->
+  <g transform="translate(640,170)">
+    <rect x="0" y="0" width="280" height="64" rx="10" fill="#C77414"/>
+    <text x="16" y="24" font-size="11" font-weight="700" fill="#FFFFFF" opacity="0.8">LAYER 3 ── Google Play</text>
+    <text x="16" y="47" font-size="19" font-weight="700" fill="#FFFFFF">流通の担保</text>
+    <rect x="0" y="72" width="280" height="328" rx="10" fill="#FFFFFF" stroke="#E3E6EB"/>
+    <rect x="14" y="86" width="252" height="58" rx="8" fill="#FBF0DF"/>
+    <text x="140" y="110" font-size="13" font-weight="700" fill="#8F5410" text-anchor="middle">「この開発者は</text>
+    <text x="140" y="130" font-size="13" font-weight="700" fill="#8F5410" text-anchor="middle">ストアが確認済みである」</text>
+    <text x="16" y="168" font-size="10.5" font-weight="700" fill="#8A9099">しくみ</text>
+    <text x="16" y="188" font-size="12.5" fill="#3A4048">開発者登録の本人確認</text>
+    <text x="16" y="207" font-size="12.5" fill="#3A4048">アプリ審査 + Play Protect</text>
+    <text x="16" y="226" font-size="12.5" fill="#3A4048">信頼は証明書ではなく</text>
+    <text x="16" y="245" font-size="12.5" fill="#3A4048">ストアの側に宿る</text>
+    <text x="16" y="276" font-size="10.5" font-weight="700" fill="#8A9099">検証するのは誰か</text>
+    <text x="16" y="296" font-size="12.5" fill="#3A4048">ストア（Google）</text>
+    <text x="16" y="327" font-size="10.5" font-weight="700" fill="#8A9099">備考</text>
+    <text x="16" y="347" font-size="12.5" fill="#3A4048">Android は身元の信頼をここに</text>
+    <text x="16" y="366" font-size="12.5" fill="#3A4048">置いた。サイドロードへの開発者</text>
+    <text x="16" y="385" font-size="12.5" fill="#3A4048">検証の拡大も進行中（2026〜）</text>
+  </g>
+
+  <!-- ============ 番外: 否認防止 (JPKI) ============ -->
+  <g transform="translate(940,170)">
+    <rect x="0" y="0" width="280" height="64" rx="10" fill="#5B6472"/>
+    <text x="16" y="24" font-size="11" font-weight="700" fill="#FFFFFF" opacity="0.8">番外 ── JPKI（マイナンバーカード）</text>
+    <text x="16" y="47" font-size="19" font-weight="700" fill="#FFFFFF">意思表示・否認防止</text>
+    <rect x="0" y="72" width="280" height="328" rx="10" fill="#FFFFFF" stroke="#E3E6EB"/>
+    <rect x="14" y="86" width="252" height="58" rx="8" fill="#EEF0F3"/>
+    <text x="140" y="110" font-size="13" font-weight="700" fill="#3F4756" text-anchor="middle">「この申請・文書は</text>
+    <text x="140" y="130" font-size="13" font-weight="700" fill="#3F4756" text-anchor="middle">本人の意思によるものである」</text>
+    <text x="16" y="168" font-size="10.5" font-weight="700" fill="#8A9099">しくみ</text>
+    <text x="16" y="188" font-size="12.5" fill="#3A4048">JPKI 署名用証明書（電子申請用）</text>
+    <text x="16" y="207" font-size="12.5" fill="#3A4048">氏名・住所・生年月日を内包</text>
+    <text x="16" y="226" font-size="12.5" fill="#3A4048">秘密鍵は IC から取り出せない</text>
+    <text x="16" y="245" font-size="12.5" fill="#3A4048">有効期限は 5 年</text>
+    <text x="16" y="276" font-size="10.5" font-weight="700" fill="#8A9099">検証するのは誰か</text>
+    <text x="16" y="296" font-size="12.5" fill="#3A4048">行政の検証基盤・許可事業者</text>
+    <text x="16" y="327" font-size="10.5" font-weight="700" fill="#8A9099">コード署名との相性</text>
+    <text x="16" y="347" font-size="12.5" font-weight="700" fill="#C43D3D">制度 = 用途外 ／ 技術 = 鍵不可</text>
+    <text x="16" y="366" font-size="12.5" font-weight="700" fill="#C43D3D">実益 = 検証者がいない</text>
+  </g>
+
+  <!-- ============ 中段: マイナカードで署名したら？ ============ -->
+  <g transform="translate(0,596)">
+    <rect x="40" y="0" width="250" height="56" rx="10" fill="#3F4756"/>
+    <text x="56" y="24" font-size="13" font-weight="700" fill="#FFFFFF">マイナカードで</text>
+    <text x="56" y="43" font-size="13" font-weight="700" fill="#FFFFFF">APK に署名したら？</text>
+    <text x="299" y="34" font-size="18" font-weight="700" fill="#8A9099">→</text>
+
+    <rect x="318" y="0" width="284" height="56" rx="10" fill="#FBEBEB" stroke="#EBC7C7"/>
+    <text x="334" y="24" font-size="12.5" font-weight="700" fill="#C43D3D">✕ 検証者がいない</text>
+    <text x="334" y="43" font-size="11.5" fill="#7A4444">Android は証明書チェーンを見ない</text>
+
+    <rect x="616" y="0" width="284" height="56" rx="10" fill="#FBEBEB" stroke="#EBC7C7"/>
+    <text x="632" y="24" font-size="12.5" font-weight="700" fill="#C43D3D">✕ 制度の用途外</text>
+    <text x="632" y="43" font-size="11.5" fill="#7A4444">署名用証明書のポリシー外利用</text>
+
+    <rect x="914" y="0" width="286" height="56" rx="10" fill="#FBEBEB" stroke="#EBC7C7"/>
+    <text x="930" y="24" font-size="12.5" font-weight="700" fill="#C43D3D">✕ 個人情報の配布</text>
+    <text x="930" y="43" font-size="11.5" fill="#7A4444">氏名・住所を全利用者に渡すことに</text>
+  </g>
+
+  <!-- ============ 下段: koetype の現在地 ============ -->
+  <g transform="translate(0,682)">
+    <rect x="40" y="0" width="1160" height="112" rx="12" fill="#232830"/>
+    <text x="64" y="34" font-size="15" font-weight="700" fill="#7BD9A5">koetype の現在地</text>
+    <text x="64" y="62" font-size="13.5" fill="#E8EAEE">オレオレ鍵の「連続性保証」 ＋ 対面手渡しの「身元保証」 ＝ いまの配布圏（家族・知人）では信頼が完結している</text>
+    <text x="64" y="88" font-size="13.5" fill="#AEB4BE">見知らぬ他人に届ける段になったら → LAYER 3 へ（Google Play 登録 ＝ 本人確認・審査・金と手続きの話）</text>
+  </g>
+
+  <!-- フッター -->
+  <text x="40" y="830" font-size="13" font-style="italic" fill="#5B6472">電子署名が写像しているのは「中身の正しさ」ではなく「出自との対応」。何を証明する署名なのかを取り違えない — 原本写像理論。</text>
+  <text x="40" y="856" font-size="11" fill="#9AA0A8">koetype docs — docs/assets/2026-07-10_signature-trust-layers.svg</text>
+</svg>
