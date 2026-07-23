@@ -13,8 +13,8 @@
     <string name="status_no_target">挿入先を見失いました — 入力欄をタップし直してください</string>
     <string name="error_api_key_chars">APIキーに使えない文字が残っています（全角文字など）。貼り付けし直してください</string>
     <string name="status_empty_result">（無音または認識できませんでした）</string>
-    <string name="status_undone">直前の転写を取り消しました</string>
-    <string name="status_undo_unavailable">取り消せる転写がありません</string>
+    <string name="status_undone">直前の音声入力を取り消しました</string>
+    <string name="status_undo_unavailable">取り消せる音声入力がありません</string>
     <string name="key_mic">🎤</string>
     <string name="key_mic_stop">⏹</string>
     <string name="key_backspace">⌫</string>
@@ -24,7 +24,7 @@
     <string name="key_settings">⚙</string>
     <string name="key_arrow_left">◀</string>
     <string name="key_arrow_right">▶</string>
-    <string name="key_undo">全消し</string>
+    <string name="key_undo">↶ Undo</string>
 
     <!-- 設定画面 -->
     <string name="pref_api_key_label">OpenAI API キー</string>
