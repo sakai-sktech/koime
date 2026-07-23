@@ -53,7 +53,8 @@
 - **なぜ**: androidx.security-crypto は deprecated 方向で、鍵ストア絡みの
   デバイス依存クラッシュの温床。アプリ専用領域は非 root 端末では他アプリから読めない。
 - **代替案**: EncryptedSharedPreferences（deprecated リスク）、Keystore 自前実装（過剰）。
-- **トレードオフ**: root 化端末・adb backup 経路では平文が読める。個人利用の
+- **トレードオフ**: root 化端末や、debug ビルドへの adb run-as 経路では平文が
+  読める（adb backup 経路は allowBackup="false" で塞いでいる — THREAT-MODEL 参照）。個人利用の
   自分キー方式では許容。ログ・例外メッセージにキーを出さない規約で補強（CLAUDE.md）。
 
 ## DD-006: ツールチェーンはローカルキャッシュに合わせる — 2026-07-08
